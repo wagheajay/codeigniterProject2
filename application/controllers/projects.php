@@ -29,7 +29,7 @@ class  Projects extends CI_Controller
     public function index(){
 
 
-         $data['projects'] = $this->projects_model->get_projects();
+        $data['projects'] = $this->projects_model->get_projects();
 
 
         $data['main_view'] = "projects/index";
@@ -42,10 +42,10 @@ class  Projects extends CI_Controller
     }
 
 
-    public function display($project_id){
+    public function display($id){
 
 
-        $data['project_data'] = $this->projects_model->get_project($project_id);
+        $data['project_data'] = $this->projects_model->get_project($id);
 
 
         $data['main_view'] = "projects/display";

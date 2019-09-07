@@ -37,7 +37,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<?php  echo base_url();?>">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
+
+        <?php if ($this->session->userdata('logged_in')):?>
+          <li><a href="<?php echo base_url(); ?>projects">Projects</a></li>
+        
+          <!-- this says if user is not logged in then only show register Tab link -->
+          <!-- if logged in hide register tab link -->
+          <?php elseif (!$this->session->userdata('logged_in')):?>
+          <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
+
+       <?php endif;?>
+        
+        
       </ul>
     
 

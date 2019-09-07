@@ -1,6 +1,11 @@
 
 <div class="col-xs-9">
-<h3>Project Name</h3>
+    <!-- showing project name from controller to view -->
+<h3>Project Name : <?php echo $project_data->project_name; ?></h3>
+<p>Date Created  : <?php echo $project_data->date_created; ?></p>
+
+<h3>Description</h3>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
 </div>
 
 
