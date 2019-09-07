@@ -26,6 +26,12 @@
 
 <?php endif; ?>
 
+<?php //this will flash no access when user try to access some pages without Login ?>
+<?php if($this->session->flashdata('no_access')): ?>
+
+<?php echo $this->session->flashdata('no_access'); ?>
+<?php endif; ?>
+
 </p>
 
 

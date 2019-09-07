@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Main</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Main Layout</title>
+
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css"/>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -38,11 +40,21 @@
         <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
       </ul>
     
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+
+      <!-- this will hide logout link when user is not logged in -->
+      <?php if ($this->session->userdata('logged_in')):?>
+         <ul class="nav navbar-nav navbar-right">
+         
+                  <li><a href="<?php echo base_url(); ?>users/logout">LogOut</a></li>
+          </ul>
+            
+       
+      
+      
+      <?php endif;?>
     
-      </ul>
-    </div><!-- /.navbar-collapse -->
+      
+    </div><!-- /.n8vbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
@@ -57,6 +69,7 @@
         <div class="col-xs-3">
 
             <?php $this->load->view('/users/login_view'); ?>
+
 
 
         </div>
