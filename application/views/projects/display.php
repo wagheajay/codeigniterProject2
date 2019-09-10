@@ -21,8 +21,8 @@
 
 
     <li class="list-group-item"><a href="<?php echo base_url();?>task/create">Create Task</a></li>
-    <li class="list-group-item"><a href="<?php echo base_url();?>">Edit Task</a></li>
-    <li class="list-group-item"><a href="<?php echo base_url();?>">Delete Task</a></li>
+    <li class="list-group-item"><a href="<?php echo base_url();?>task/edit">Edit Task</a></li>
+    <li class="list-group-item"><a href="<?php echo base_url();?>task/delete">Delete Task</a></li>
 
 </ul>
 </div>

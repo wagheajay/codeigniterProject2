@@ -1,7 +1,7 @@
 <?php
 
 
-class Projects_model extends CI_Model{
+class Project_model extends CI_Model{
 
 
 
@@ -32,5 +32,14 @@ class Projects_model extends CI_Model{
         return $query->result();
 
     }
+
+    public function create_new_project($data){
+
+        
+        $query = $this->db->insert('projects',$data);
+        return $query;
+    }
+
+
 }
 ?>

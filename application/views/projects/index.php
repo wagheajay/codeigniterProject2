@@ -1,9 +1,9 @@
 <h1>Projects</h1>
 
-<a class="btn btn-primary pull-right" href="<?php base_url()?>projects/create">Create Project</a>
+<a class="btn btn-primary pull-right" href="<?php base_url();?>projects/create">Create Project</a>
 
 <table class="table table-hover ">
-<thead>
+
     <tr>
         <th>
             Project Name
