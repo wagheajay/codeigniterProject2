@@ -1,7 +1,5 @@
 <h1>Create Project</h1>
 
-
-
 <?php
 //this will add attributes to form like id="login_form" class="form_horizontal"
 

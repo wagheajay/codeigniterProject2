@@ -119,10 +119,11 @@ class Users extends CI_Controller {
 
     //logout user session
     public function logout(){
+         $this->session->sess_destroy();// sess_destroy()
+            redirect('home/index');
 
+       
 
-        $this->session->sess_destroy();// sess_destroy()
-
-        redirect('home/index');
+        
     }
 }
