@@ -4,7 +4,7 @@
 
 <?php echo validation_errors("<p class='bg-danger'>");?>
 
-<?php echo form_open('projects/create', $attributes);?>
+<?php echo form_open('projects/edit/'.$project_data->id.'', $attributes);?>
 
 
 <div class="form-group">
@@ -12,7 +12,8 @@
  <?php  echo form_label("Project Name")."<br>";  ?>
 <?php  $form_data = array(
    'class'=> 'form-control',
-    'name'=> 'projectname'
+    'name'=> 'projectname',
+    'value' => $project_data->project_name
 );
 ?>
 
@@ -25,7 +26,8 @@
 <!-- this way we can apply class to form input fields -->
 <?php  $form_data = array(
     'class'=> 'form-control',
-    'name'=> 'projectbody'
+    'name'=> 'projectbody',
+    'value' => $project_data->project_body
     );
 ?>
 <?php echo form_textarea($form_data);?>
@@ -40,7 +42,7 @@
     
     'class'=> 'btn btn-primary',
     'name'=> 'submit',
-    'value' => 'Create'
+    'value' => 'Update'
 );
     ?>
      <?php echo form_submit($form_data);?>

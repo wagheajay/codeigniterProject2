@@ -28,7 +28,7 @@
 
 <?php  echo form_submit($data);  ?>
 
-<?php form_close()?>
+<?php echo form_close()?>
 
 
 
