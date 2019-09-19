@@ -36,7 +36,7 @@
 <!-- if not logged in else will show content below -->
 
 
-<h1>Login Form</h1>
+<h1 class="text-center">Login</h1>
 
 
 
@@ -113,23 +113,7 @@ echo form_open('/users/login', $attributes);
      
 </div>
 
-<!-- this class is from bootstrap -->
-<div class="form-group">
-<!-- this way we can apply class to form input fields -->
-<?php  $form_data = array(
-    
-    'class'=> 'form-control',
-    'name'=> 'confirm_password',
-    'placeholder'=> 'Confirm Password',
-    'autocomplete' =>"off"
 
-    );
-    ?>
-
-     <?php  echo form_label("Confirm Password")."<br>";  ?>
-     <?php echo form_password($form_data); //means input type password?>
-     
-</div>
 
 <!-- this class is from bootstrap -->
 <div class="form-group">

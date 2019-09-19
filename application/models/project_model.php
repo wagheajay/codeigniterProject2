@@ -50,12 +50,7 @@ class Project_model extends CI_Model{
     }
 
 
-    public function get_projects_info($project_id){
-
-        $this->db->where('id',$project_id);
-        $get_data = $this->db->get('projects');
-        return $get_data->row();
-    }
+    
 
 
     public function delete_project($project_id){
@@ -65,6 +60,20 @@ class Project_model extends CI_Model{
         return true;
     }
 
+    public function get_projects_info($project_id){
+
+        $this->db->where('id',$project_id);
+        $get_data = $this->db->get('projects');
+        return $get_data->row();
+    }
+
+    public function get_all_projects($user_id){
+
+        $this->db->where('project_user_id',$user_id);
+        $get_all_project = $this->db->get('projects'); 
+        return $get_all_project->result();
+
+    }
 
 }
 ?>

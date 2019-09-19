@@ -25,6 +25,7 @@
 <h2 class="text text-center text-danger">No Projects Found ! Create New</h2>
 
 <?php else: ?>
+
 <h1>Projects</h1>
 <table class="table table-hover  table-bordered">
 

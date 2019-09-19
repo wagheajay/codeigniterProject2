@@ -60,7 +60,7 @@ class Users extends CI_Controller {
 
         $this->form_validation->set_rules('username','Username','trim|required|min_length[3]');
         $this->form_validation->set_rules('password','Password','trim|required|min_length[8]');
-        $this->form_validation->set_rules('confirm_password','Confirm Password','trim|required|matches[password]');
+        // $this->form_validation->set_rules('confirm_password','Confirm Password','trim|required|matches[password]');
 
 
         if($this->form_validation->run()==FALSE)
@@ -96,10 +96,10 @@ class Users extends CI_Controller {
                 $this->session->set_userdata($user_data);
 
                 $this->session->set_flashdata('login_success','You are logged in successfully !');
-               // redirect('home/index');
-               $data['main_view'] = "users/admin_view";
+               redirect('home/index');
+            //    $data['main_view'] = "users/admin_view";
 
-               $this->load->view('layouts/main',$data);
+            //    $this->load->view('layouts/main',$data);
        
             }
             else{

@@ -35,4 +35,63 @@
 </p>
 
 
-<h1>User Login Area </h1>
+<?php if(!$this->session->userdata('logged_in')):  ?>
+
+<div class="jumbotron">
+    <h2 class="text-center ">Welcome To AJ's Web</h2>
+</div>
+<?php endif;  ?>
+
+
+
+
+<?php  if (isset($projects)):?>
+
+
+<?php  if($this->session->userdata('logged_in')):  ?>
+
+<h2><?php  echo $this->session->userdata('username')." Your Projects"?></h2>
+
+<?php  endif;  ?>
+
+
+<table class="table table-hover  table-bordered">
+
+    <tr>
+        <th>
+            Project Name
+        </th>
+        <th>
+            Project Body
+        </th>
+    </tr>
+    
+</thead>
+
+<tbody>
+
+
+
+
+<?php  foreach($projects as $project):?>
+<tr>
+    <!-- showing id as parameter  as projects/display/project_id as parameter link using concatination     -->
+<?php  echo "<td class='text-primary' >". $project->project_name ."</td>"; ?>
+<?php  echo "<td>". $project->project_body ."</td>"; ?>
+<td>
+<a class="btn btn-primary pull-left" href=<?php echo base_url()."projects/"; ?>>View</a>
+
+    
+</td>
+
+
+<?php  endforeach;?>
+
+
+</tr>
+
+
+</tbody>
+
+</table>
+<?php endif; ?>
