@@ -50,10 +50,19 @@
 
 <?php  if($this->session->userdata('logged_in')):  ?>
 
-<h2><?php  echo $this->session->userdata('username')." Your Projects"?></h2>
+<h2 class="text-success"><?php  echo $this->session->userdata('username')." Your Projects"?></h2>
+
 
 <?php  endif;  ?>
+<?php endif; ?>
 
+
+<?php if(isset($projects) && sizeof($projects) == 0):?>
+
+<h2 class="text-danger text-center "><?php echo "There is no project you created.." ?></h2>
+
+
+<?php elseif(isset($projects) && sizeof($projects) > 0):  ?>
 
 <table class="table table-hover  table-bordered">
 
