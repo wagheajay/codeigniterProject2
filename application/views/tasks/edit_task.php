@@ -1,10 +1,10 @@
-<h1>Create Task</h1>
+<h1>Edit Task</h1>
 
 <?php $attributes = array('id' => 'edit_task_form', 'class' => 'form_horizontal');?>
 
 <?php echo validation_errors("<p class='bg-danger'>");?>
 
-<?php echo form_open('tasks/create/'.$this->uri->segment(3).'', $attributes);?>
+<?php echo form_open('tasks/edit/'.$this->uri->segment(3).'', $attributes);?>
 
 
 <div class="form-group">
@@ -13,7 +13,8 @@
 <?php  $form_data = array(
    'class'=> 'form-control',
     'name'=> 'taskname',
-    'placeholder' => 'enter task name'
+    'value' => $the_task->task_name
+
 );
 ?>
 
@@ -26,7 +27,9 @@
 <!-- this way we can apply class to form input fields -->
 <?php  $form_data = array(
     'class'=> 'form-control',
-    'name'=> 'taskbody'
+    'name'=> 'taskbody',
+    'value' => $the_task->task_body
+
     );
 ?>
 <?php echo form_textarea($form_data);?>
@@ -40,7 +43,8 @@
 <?php  $form_data = array(
     'class'=> 'form-control',
     'name'=> 'due_date',
-    'type'=> 'date'
+    'type'=> 'date',
+    'value' => $the_task->due_date
     );
 ?>
 <?php echo form_input($form_data);?>
@@ -55,7 +59,7 @@
     
     'class'=> 'btn btn-primary',
     'name'=> 'submit',
-    'value' => 'Create Task'
+    'value' => 'Update Task'
 );
     ?>
      <?php echo form_submit($form_data);?>

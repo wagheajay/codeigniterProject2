@@ -88,7 +88,7 @@
 <?php  echo "<td class='text-primary' >". $project->project_name ."</td>"; ?>
 <?php  echo "<td>". $project->project_body ."</td>"; ?>
 <td>
-<a class="btn btn-primary pull-left" href=<?php echo base_url()."projects/"; ?>>View</a>
+<a class="btn btn-primary pull-left" href="<?php echo base_url(); ?>projects/display/<?php echo $project->id ?>">View</a>
 
     
 </td>

@@ -34,8 +34,8 @@
 
                <div class="task-actions">
 
-               <a href="<?php echo base_url();  ?>/tasks/edit/<?php echo $task->id ?>">Edit</a>
-               <a href="<?php echo base_url();  ?>/tasks/delete/<?php echo $task->id ?>">Delete</a>
+               <a href="<?php echo base_url();  ?>tasks/edit/<?php echo $task->id ?>">Edit</a>
+               <a href="<?php echo base_url();  ?>tasks/delete/<?php echo $task->project_id ?>/<?php echo $task->id ?>">Delete</a>
 
                </div>
         </td>

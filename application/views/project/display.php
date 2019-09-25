@@ -6,6 +6,32 @@
 
 <h3 class="text-primary" >Description</h3>
 <p><?php echo $project_data->project_body; ?></p>
+
+
+
+<h3>Tasks</h3>
+
+<ul>
+<?php if($completed_task):  ?>
+
+     <?php foreach($completed_task as $task): ?>
+
+<li>
+       <a href="<?php echo base_url(); ?>tasks/display/<?php echo $task->id ?>">
+     
+      <h4> <?php echo $task->task_name?> </h4> 
+    
+       </a>
+
+      <?php  endforeach; ?>
+
+<?php else:?>
+  <h4 class="text-danger">There are no tasks..</h4>
+
+<?php endif;  ?>
+</li>
+
+</ul>
 </div>
 
 
