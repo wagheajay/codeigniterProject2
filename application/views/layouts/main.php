@@ -50,6 +50,7 @@
       <?php endif;?>
 
       <li><a href="<?php echo base_url(); ?>upload/">Upload Image</a></li>
+      <li><a href="<?php echo base_url(); ?>upload/get_all_image/">All Images</a></li>
 
   
         
