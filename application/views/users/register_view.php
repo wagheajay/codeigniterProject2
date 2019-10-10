@@ -38,7 +38,8 @@ echo form_open('/users/register', $attributes);
     'class'=> 'form-control',
     'name'=> 'first_name',
     'placeholder'=> 'Enter First Name',
-    'autocomplete' =>"off"
+    'autocomplete' =>"off",
+    'value' => set_value('first_name')
 
     );
     ?>
@@ -57,7 +58,8 @@ echo form_open('/users/register', $attributes);
     'class'=> 'form-control',
     'name'=> 'last_name',
     'placeholder'=> 'Enter Last Name',
-    'autocomplete' =>"off"
+    'autocomplete' =>"off",
+    'value' => set_value('last_name')
 
     );
     ?>
@@ -77,7 +79,8 @@ echo form_open('/users/register', $attributes);
     'class'=> 'form-control',
     'name'=> 'email',
     'placeholder'=> 'Enter Email',
-    'autocomplete' =>"off"
+    'autocomplete' =>"off",
+    'value' => set_value('email')
 
     );
     ?>
@@ -114,7 +117,8 @@ echo form_open('/users/register', $attributes);
     'class'=> 'form-control',
     'name'=> 'username',
     'placeholder'=> 'Enter Username',
-    'autocomplete' =>"off"
+    'autocomplete' =>"off",
+    'value' => set_value('username')
 
     );
     ?>

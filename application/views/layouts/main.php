@@ -21,7 +21,7 @@
 
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -49,7 +49,7 @@
       <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
       <?php endif;?>
 
-        
+      <li><a href="<?php echo base_url(); ?>upload/">Upload Image</a></li>
 
   
         
@@ -82,7 +82,7 @@
 
     <div class="container">
 
-        <div class="col-xs-3">
+        <div class="col-xs-3" style="background-color: #18c5c2;">
 
             <?php $this->load->view('/users/login_view'); ?>
 
@@ -92,7 +92,9 @@
 
         <div class="col-xs-9">
 
+             
             <?php $this->load->view($main_view); ?>
+             
 
         </div>
 

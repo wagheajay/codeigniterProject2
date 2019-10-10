@@ -3,6 +3,22 @@
 class Tasks extends CI_Controller {
 
 
+    //this construct function will run at start when projects get called
+    public function __construct()
+    {
+        parent::__construct();
+        
+         if (!$this->session->userdata('logged_in')) {
+
+          $this->session->set_flashdata('no_access', 'Access Denied!');
+          redirect('home/index');
+
+
+            
+        }
+        
+        
+    }
 
 
     public function display($task_id) {
@@ -18,10 +34,6 @@ class Tasks extends CI_Controller {
     public function create($project_id)
     {
         
-
-        
-
-
         $this->form_validation->set_rules('taskname', 'Task Name', 'trim|required');
         $this->form_validation->set_rules('taskbody', 'Task Description', 'trim|required');
         $this->form_validation->set_rules('due_date', 'Due Date', 'trim|required');
@@ -35,11 +47,11 @@ class Tasks extends CI_Controller {
 
             $data['main_view'] = 'tasks/create_task';
             $this->load->view('layouts/main', $data);
-            # code...
+            
         } else {
 
 
-            //$project_user_id = $this->session->userdata('user_id');
+        
             $task_name = $this->input->post('taskname');
             $task_body = $this->input->post('taskbody');
             $due_date = $this->input->post('due_date');
@@ -57,7 +69,7 @@ class Tasks extends CI_Controller {
             if ($this->tasks_model->create_new_task($data)) {
 
                 $this->session->set_flashdata('task_created', 'task has been created.');
-                redirect('projects/index');
+                redirect('projects/display/'.$project_id);
                 
             }
         }
@@ -117,6 +129,32 @@ class Tasks extends CI_Controller {
              $this->session->set_flashdata('task_deleted', 'task has been deleted.');
              redirect("projects/display/" .$project_id." ");
     
+    }
+
+    public function mark_complete($task_id){
+        
+
+        if($this->tasks_model->mark_complete($task_id)){
+
+            $project_id =  $this->tasks_model->get_task_project_id($task_id);
+
+            $this->session->set_flashdata('task_completed','Task Marked As Completed !');
+
+            redirect("projects/display/".$project_id);
+        }
+    }
+
+    public function mark_incomplete($task_id){
+        
+
+        if($this->tasks_model->mark_incomplete($task_id)){
+
+            $project_id =  $this->tasks_model->get_task_project_id($task_id);
+
+            $this->session->set_flashdata('task_incompleted','Task Marked As Incompleted !');
+
+            redirect("projects/display/".$project_id);
+        }
     }
 
 }

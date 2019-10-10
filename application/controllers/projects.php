@@ -47,7 +47,8 @@ class  Projects extends CI_Controller
     {
 
 
-        $data['completed_task'] = $this->project_model->get_project_task($project_id,TRUE);
+        $data['not_completed_task'] = $this->project_model->get_project_task($project_id,true);
+        $data['completed_task'] = $this->project_model->get_project_task($project_id,false);
 
         $data['project_data'] = $this->project_model->get_project($project_id);
 
