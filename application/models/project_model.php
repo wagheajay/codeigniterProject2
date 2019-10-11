@@ -25,11 +25,26 @@ class Project_model extends CI_Model{
         return $query->row();
     }
 
-   public function get_projects(){
+   public function get_projects($limit,$offset){
+
+
+    // $query = $this->db->select()
+    //                   ->from('projects')
+    //                   ->limit($limit,$offset)
+    //                   ->get();
+
+      $this->db->limit($limit,$offset);
+    $query = $this->db->get('projects');
+
+    return $query->result();
+
+    }
+
+   public function get_projects_rows(){
 
         $query = $this->db->get('projects');
 
-        return $query->result();
+        return $query->num_rows();
 
     }
 

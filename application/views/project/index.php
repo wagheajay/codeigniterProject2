@@ -60,6 +60,9 @@
 
     <tr>
         <th>
+            Sr.no
+        </th>
+        <th>
             Project Name
         </th>
         <th>
@@ -75,10 +78,15 @@
 
 
 
+<?php  $count = $this->uri->segment(3); //add this line befor loop eg foreach loop here?>
 
 <?php  foreach($projects as $project):?>
+
 <tr>
+
+
     <!-- showing id as parameter  as projects/display/project_id as parameter link using concatination     -->
+<?php  echo "<td class='text-primary' >". ++$count ."</td>"; ?>
 <?php  echo "<td class='text-primary' >". $project->project_name ."</td>"; ?>
 <?php  echo "<td>". $project->project_body ."</td>"; ?>
 <td>
@@ -96,6 +104,17 @@
 </tbody>
 
 </table>
+
+<!-- <ul class="pagination">
+  <li><a href="#"><</a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li ><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">></a></li>
+</ul> -->
+<?php echo $this->pagination->create_links(); ?>
 
 <?php endif;?>
 

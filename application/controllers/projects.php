@@ -13,6 +13,8 @@ class  Projects extends CI_Controller
     {
         parent::__construct();
         
+        $this->load->library('pagination');
+
          if (!$this->session->userdata('logged_in')) {
 
           $this->session->set_flashdata('no_access', 'Access Denied!');
@@ -31,9 +33,39 @@ class  Projects extends CI_Controller
     public function index()
     {
 
-        $data['projects'] = $this->project_model->get_projects();
+    
+        $config = array(
 
+            'base_url' => base_url()."projects/index",
+            'per_page' => 4,
+            'total_rows' => $this->project_model->get_projects_rows(),
+        );
+        //config for bootstrap pagination class integration
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First Page';
+        //$config['first_link'] = '&lsaquo; First';
+        //$config['last_link'] = 'Last &rsaquo;';
+        $config['last_link'] = 'Last Page';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = 'Previous';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+      $this->pagination->initialize($config);
 
+        $page = $this->uri->segment(3,0);
+    
+        $data['projects'] = $this->project_model->get_projects($config['per_page'],$page);
         $data['main_view'] = "project/index";
 
         $this->load->view('layouts/main', $data);
